@@ -1,23 +1,26 @@
 # CVE Findings Repository
 
 ## Introduction
-Welcome to our CVE Findings repository. Here, we document and discuss various Common Vulnerabilities and Exposures (CVEs) that we have discovered and analyzed. Our goal is to contribute to the cybersecurity community by providing detailed insights and potential mitigation strategies for these vulnerabilities.
+Welcome to my CVE Findings repository. Here, I document and discuss various Common Vulnerabilities and Exposures (CVEs) that I have discovered. My goal is to contribute to the cybersecurity community by providing detailed insights and potential mitigation strategies for these vulnerabilities.
 
 ## CVE Listings
 
-| CVE ID | Title | Date Discovered | Severity | Status |
-| ------ | ----- | --------------- | -------- | ------ |
-| CVE-XXXX-XXXX | Title of CVE | Date | Severity Level | Mitigation Status |
-| CVE-XXXX-XXXX | Title of CVE | Date | Severity Level | Mitigation Status |
-_(Add more rows as needed)_
+| CVE ID | Title | Date Discovered | Severity | CVSS | Status |
+| ------ | ----- | --------------- | -------- | ------ |  ------ |
+| CVE-2023-48309 | Authentication bypass in NextAuth.js | 11.2023 | Medium | 5.3 | Patched in v4.24.5 |
+
 
 ## Detailed Findings
 
-### CVE-XXXX-XXXX
-**Title:** Description of the CVE
+### CVE-2023-48309
+**Title:** Authentication bypass in NextAuth.js
 
 **Details:**
-- **Vulnerability Type:** Type of vulnerability (e.g., buffer overflow, SQL injection)
-- **Affected Products/Services:** List of affected products or services
-- **Impact:** Description of the impact (e.g., data breach, system compromise)
-- **Mitigation/Recommendations:** Steps to mitigate or recommendations
+- **Affected Products/Services:** NextAuth.js prior to v4.24.5.
+- **Impact:** The vulnerability results in an anonymous session within the application. Since this session does not have any user information associated with it, it does not provide direct access to other users' data. However, depending on your application code, this could potentially be exploited to access or read sensitive data within the application.
+- **Description:** A bad actor could create an empty/mock user, by getting hold of a NextAuth.js-issued JWT from an interrupted OAuth sign-in flow (state, PKCE or nonce). Manually overriding the `next-auth.session-token` cookie value with this non-related JWT would let the user simulate a logged in user, albeit having no user information associated with it. (The only property on this user is an opaque randomly generated string). This vulnerability does not give access to other users' data, neither to resources that require proper authorization via scopes or other means. The created mock user has no information associated with it (ie. no name, email, access_token, etc.)
+- **Mitigation/Recommendations:** Upgrade library to @latest.
+- **References:** 
+https://github.com/nextauthjs/next-auth/security/advisories/GHSA-v64w-49xw-qq89
+https://nvd.nist.gov/vuln/detail/CVE-2023-48309
+https://github.com/nextauthjs/next-auth/commit/d237059b6d0cb868c041ba18b698e0cee20a2f10
