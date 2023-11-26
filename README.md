@@ -24,3 +24,5 @@ Welcome to my CVE Findings repository. Here, I document and discuss various Comm
   - https://github.com/nextauthjs/next-auth/security/advisories/GHSA-v64w-49xw-qq89
   - https://nvd.nist.gov/vuln/detail/CVE-2023-48309
   - https://github.com/nextauthjs/next-auth/commit/d237059b6d0cb868c041ba18b698e0cee20a2f10
+ 
+  **Note:** This Proof of Concepts are provided for educational and ethical testing purposes only. Unauthorized access to applications is illegal and unethical.
