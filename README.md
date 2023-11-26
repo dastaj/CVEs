@@ -17,8 +17,9 @@ Welcome to my CVE Findings repository. Here, I document and discuss various Comm
 
 **Details:**
 - **Affected Products/Services:** NextAuth.js prior to v4.24.5.
-- **Impact:** The vulnerability results in an anonymous session within the application. Since this session does not have any user information associated with it, it does not provide direct access to other users' data. However, depending on your application code, this could potentially be exploited to access or read sensitive data within the application.
+- **Impact:** The vulnerability results in an anonymous session within the application. Since this session does not have any user information associated with it, it does not provide direct access to other users' data. However, depending on your application code, this could potentially be exploited to access or read sensitive data within the application, making this vulnerability a **critical-risk**.
 - **Description:** A bad actor could create an empty/mock user, by getting hold of a NextAuth.js-issued JWT from an interrupted OAuth sign-in flow (state, PKCE or nonce). Manually overriding the `next-auth.session-token` cookie value with this non-related JWT would let the user simulate a logged in user, albeit having no user information associated with it. (The only property on this user is an opaque randomly generated string). This vulnerability does not give access to other users' data, neither to resources that require proper authorization via scopes or other means. The created mock user has no information associated with it (ie. no name, email, access_token, etc.)
+However, depending on your code of your application, the attacker can gain access to all data within application, what makes with vulnerability a **critical** risk
 - **Mitigation/Recommendations:** Upgrade library to @latest.
 - **References:** 
   - https://github.com/nextauthjs/next-auth/security/advisories/GHSA-v64w-49xw-qq89
