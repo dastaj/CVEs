@@ -1,7 +1,9 @@
 # CVE Findings Repository
 
 ## Introduction
-Welcome to my CVE Findings repository. Here, I document and discuss various Common Vulnerabilities and Exposures (CVEs) that I have discovered. My goal is to contribute to the cybersecurity community by providing detailed insights and potential mitigation strategies for these vulnerabilities. For each CVE, there is a separate directory containing its Proof of Concept (PoC).
+Welcome to my CVE Findings repository. Here, I document and discuss various Common Vulnerabilities and Exposures (CVEs) that I have discovered. My goal is to contribute to the cybersecurity community by providing detailed insights and potential mitigation strategies for these vulnerabilities. 
+
+For each CVE, there is a separate directory containing its Proof of Concept (PoC).
 
 ## CVE Listings
 
